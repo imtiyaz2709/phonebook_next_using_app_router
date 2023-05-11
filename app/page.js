@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 
 async function getPhonebook(){
-  const  phonebookRecord = await fetch("http://127.0.0.1:3000/api/PhoneBook",{next:{revalidate:10}})
+  const  phonebookRecord = await fetch("http://127.0.0.1:3000/api/PhoneBook",{next:{revalidate:5}})
   return phonebookRecord.json()
 }
 
@@ -16,7 +16,6 @@ const handleDelete =  async (id) => {
       }
     })
     alert("data deleted")
-    await getPhonebook();
 
 }
 export default async function Home() {
